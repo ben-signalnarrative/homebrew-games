@@ -3,7 +3,7 @@ class Fceux < Formula
   homepage "http://fceux.com"
   url "https://downloads.sourceforge.net/project/fceultra/Source%20Code/2.2.2%20src/fceux-2.2.2.src.tar.gz"
   sha256 "804d11bdb4a195f3a580ce5d2d01be877582763378637e16186a22459f5fe5e1"
-  revision 2
+  revision 3
 
   bottle do
     cellar :any
@@ -18,10 +18,10 @@ class Fceux < Formula
   depends_on "scons" => :build
   depends_on "sdl"
   depends_on "gtk+3" => :recommended
+  depends_on "lua51"
 
   # Make scons honor PKG_CONFIG_PATH and PKG_CONFIG_LIBDIR
   # Reported upstream: https://sourceforge.net/p/fceultra/bugs/625
-  # Also temporarily kill Lua support pending further investigation as to build failures.
   # It is listed as "Optional" in the build docs, but will be reinstated asap.
   # Additional patches added to remove all traces of X11 and to enable a build against gtk+3.
   # Filed as bug https://sourceforge.net/p/fceultra/bugs/703/
@@ -77,15 +77,20 @@ diff --git a/SConstruct b/SConstruct
 index dc6698e..a23350a 100644
 --- a/SConstruct
 +++ b/SConstruct
-@@ -18,7 +18,7 @@ opts.AddVariables(
-   BoolVariable('RELEASE',   'Set to 1 to build for release', 1),
-   BoolVariable('FRAMESKIP', 'Enable frameskipping', 1),
-   BoolVariable('OPENGL',    'Enable OpenGL support', 1),
--  BoolVariable('LUA',       'Enable Lua support', 1),
-+  BoolVariable('LUA',       'Enable Lua support', 0),
-   BoolVariable('GTK', 'Enable GTK2 GUI (SDL only)', 1),
-   BoolVariable('GTK3', 'Enable GTK3 GUI (SDL only)', 0),
-   BoolVariable('NEWPPU',    'Enable new PPU core', 1),
+@@ -140,11 +140,11 @@ else:
+     lua_available = False
+     if conf.CheckLib('lua5.1'):
+       env.Append(LINKFLAGS = ["-ldl", "-llua5.1"])
+-      env.Append(CCFLAGS = ["-I/usr/include/lua5.1"])
++      env.Append(CCFLAGS = ["-I/usr/local/include/lua5.1"])
+       lua_available = True
+     elif conf.CheckLib('lua'):
+       env.Append(LINKFLAGS = ["-ldl", "-llua"])
+-      env.Append(CCFLAGS = ["-I/usr/include/lua"])
++      env.Append(CCFLAGS = ["-I/usr/local/include/lua"])
+       lua_available = True
+     if lua_available == False:
+       print 'Could not find liblua, exiting!'
 diff --git a/src/drivers/sdl/SConscript b/src/drivers/sdl/SConscript
 index 7a53b07..6a9cbeb 100644
 --- a/src/drivers/sdl/SConscript
