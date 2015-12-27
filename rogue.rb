@@ -1,4 +1,5 @@
 class Rogue < Formula
+  desc "Dungeon crawling video game"
   homepage "http://rogue.rogueforge.net/"
   url "http://rogue.rogueforge.net/files/rogue5.4/rogue5.4.4-src.tar.gz"
   version "5.4.4"

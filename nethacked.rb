@@ -2,7 +2,7 @@ require "etc"
 
 # Bugfixed and interface-patched Nethack.
 #
-# This formula is based on the Nethack formala, and includes the
+# This formula is based on the Nethack formula, and includes the
 # patches from same. The original notes from the Nethack formula
 # follow:
 # - @jterk
@@ -19,6 +19,7 @@ require "etc"
 # - @adamv
 
 class Nethacked < Formula
+  desc "Bugfixed and interface-patched Nethack"
   homepage "https://nethacked.github.io/"
   url "https://github.com/nethacked/nethacked/archive/1.0.tar.gz"
   sha256 "4e3065a7b652d5fc21577e0b7ac3a60513cd30f4ee81c7f11431a71185b609aa"

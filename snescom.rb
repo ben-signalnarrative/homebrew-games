@@ -1,4 +1,5 @@
 class Snescom < Formula
+  desc "Compile 65816/65c816 machine code"
   homepage "http://bisqwit.iki.fi/source/snescom.html"
   url "http://bisqwit.iki.fi/src/arch/snescom-1.7.4.1.tar.bz2"
   sha256 "e80187d969fd448fe4d3c636bdbe9c24fe452e1436566b29fbf3410bde739504"

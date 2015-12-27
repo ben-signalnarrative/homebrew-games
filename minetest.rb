@@ -1,27 +1,6 @@
-require "formula"
-
 class Minetest < Formula
+  desc "Free, open source voxel game engine and game"
   homepage "http://www.minetest.net/"
-
-  depends_on :x11
-  depends_on "cmake" => :build
-  depends_on "irrlicht"
-  depends_on "jpeg"
-  depends_on "libogg"
-  depends_on "libvorbis"
-  depends_on "luajit" => :recommended
-  depends_on "freetype" => :recommended
-  depends_on "gettext" => :recommended
-  depends_on "leveldb" => :optional
-  depends_on "redis" => :optional
-
-  head do
-    url "https://github.com/minetest/minetest.git"
-
-    resource "minetest_game" do
-      url "https://github.com/minetest/minetest_game.git", :branch => "master"
-    end
-  end
 
   stable do
     url "https://github.com/minetest/minetest/archive/0.4.13.tar.gz"
@@ -39,10 +18,30 @@ class Minetest < Formula
     sha256 "de66cf4c04ae23893eddbcc2d7fd30cc968825822fe1c7771d7429662bffd500" => :mountain_lion
   end
 
+  head do
+    url "https://github.com/minetest/minetest.git"
+
+    resource "minetest_game" do
+      url "https://github.com/minetest/minetest_game.git", :branch => "master"
+    end
+  end
+
+  depends_on :x11
+  depends_on "cmake" => :build
+  depends_on "irrlicht"
+  depends_on "jpeg"
+  depends_on "libogg"
+  depends_on "libvorbis"
+  depends_on "luajit" => :recommended
+  depends_on "freetype" => :recommended
+  depends_on "gettext" => :recommended
+  depends_on "leveldb" => :optional
+  depends_on "redis" => :optional
+
   def install
     (buildpath/"games/minetest_game").install resource("minetest_game")
 
-    args = std_cmake_args - %w{-DCMAKE_BUILD_TYPE=None}
+    args = std_cmake_args - %w[-DCMAKE_BUILD_TYPE=None]
     args << "-DCMAKE_BUILD_TYPE=Release" << "-DBUILD_CLIENT=1" << "-DBUILD_SERVER=0"
     args << "-DENABLE_REDIS=1" if build.with? "redis"
     args << "-DENABLE_LEVELDB=1" if build.with? "leveldb"

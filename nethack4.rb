@@ -1,8 +1,9 @@
 class Nethack4 < Formula
+  desc "Patched, fork version of Nethack"
   homepage "http://nethack4.org"
   url "http://nethack4.org/media/releases/nethack4-4.3-beta2.tar.gz"
-  sha256 "b143a86b5e1baf55c663ae09c2663b169d265e95ac43154982296a1887d05f15"
   version "4.3.0-beta2"
+  sha256 "b143a86b5e1baf55c663ae09c2663b169d265e95ac43154982296a1887d05f15"
 
   head "http://nethack4.org/media/nethack4.git"
 

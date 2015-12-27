@@ -1,14 +1,14 @@
 class Angband < Formula
   desc "Dungeon exploration game"
   homepage "http://rephial.org/"
-  url "http://rephial.org/downloads/4.0/angband-4.0.2.tar.gz"
-  sha256 "3be090111a597fd2f26860347db277347088677cc646bc3fdf560adf95fb7808"
+  url "http://rephial.org/downloads/4.0/angband-4.0.4.tar.gz"
+  sha256 "93f95444304d5178d23569dbd3dbe1eb29747201d353c676206f26b5bec4667c"
   head "https://github.com/angband/angband.git"
 
   bottle do
-    sha256 "bd67612ef2fe203c84f865b383b3df40601faf6144a02303c272dbad769a136b" => :el_capitan
-    sha256 "963b83568c3577dedfed7e77d4ef5ebe7b609259831d92beeac9d6200af36146" => :yosemite
-    sha256 "b09ef7697942b0ee214ad040c1a441aace8cdafaf0bae766e21d1bc68a226216" => :mavericks
+    sha256 "56ecb56fe139b07ad897543ec8bf7e693be274c92bc0ad2c8dace61dda062710" => :el_capitan
+    sha256 "1bab68197f12c479006214aa3512a33f93aa195b0c09aefa86b187379463a765" => :yosemite
+    sha256 "c7280d8398df5f6de480bae42aac3357f9a911542215511c84d76ef57c7d50b0" => :mavericks
   end
 
   option "with-cocoa", "Install Cocoa app"

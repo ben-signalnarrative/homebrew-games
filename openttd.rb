@@ -1,14 +1,15 @@
 class Openttd < Formula
+  desc "Simulation game based upon Transport Tycoon Deluxe"
   homepage "https://www.openttd.org/"
-  url "https://binaries.openttd.org/releases/1.5.1/openttd-1.5.1-source.tar.xz"
-  sha256 "c98e76e57de213c8d2ccafa4fa2e02b91c031b2487639ccf9b85c725c1428f49"
+  url "https://binaries.openttd.org/releases/1.5.3/openttd-1.5.3-source.tar.xz"
+  sha256 "d8b9a7aaca7c9f3ff69b1d210daf1e2658402941bb9b30cb2789a9df73d1ba63"
 
   head "git://git.openttd.org/openttd/trunk.git"
 
   bottle do
-    sha256 "dba77231d9a1b4034d3310afea8ea20f42888509673e2ea611024263b3c11e8b" => :yosemite
-    sha256 "2d5fd44fa7461aa73bc9e9f390656f648070e16c53c4d64009410e438ad0915f" => :mavericks
-    sha256 "addd02b6050fb3422021d39a08f9075572e79106e863e01a22114af90ea9d13c" => :mountain_lion
+    sha256 "f13d1c2da5097699823d9729ec1edda05b0d1924f5271b4e3815208609e26a80" => :el_capitan
+    sha256 "3a36a196fabed030ffaf7dc61c2da0c7a26743ecf2beedd0f62fde86a4dd4014" => :yosemite
+    sha256 "88f2bffb851a248c43e1a7db8c780e98ea6f4c0b68b23142d7193cac14225421" => :mavericks
   end
 
   depends_on "lzo"
@@ -37,6 +38,14 @@ class Openttd < Formula
     sha256 "95c3d54a109c93dc88a693ab3bcc031ced5d936993f3447b875baa50d4e87dac"
   end
 
+  # Fixes for 10.11
+  # https://bugs.openttd.org/task/6380
+  patch :DATA, :p1
+  patch :p0 do
+    url "https://bugs.openttd.org/task/6380/getfile/10390/patch-src__video__cocoa__wnd_quartz.mm-avoid-removed-cmgetsystemprofile.diff"
+    sha256 "2cf010eb69df588134aceda0eba62cc21e221b6f2dfb7d836869b6edf4bdc093"
+  end
+
   def install
     system "./configure", "--prefix-dir=#{prefix}"
     system "make", "bundle"
@@ -60,3 +69,18 @@ class Openttd < Formula
     File.executable? prefix/"OpenTTD.app/Contents/MacOS/openttd"
   end
 end
+
+__END__
+diff --git a/src/music/cocoa_m.cpp b/src/music/cocoa_m.cpp
+index b0cb879..8818893 100644
+--- a/src/music/cocoa_m.cpp
++++ b/src/music/cocoa_m.cpp
+@@ -68,7 +68,7 @@ static void DoSetVolume()
+			 * risk compilation errors. The header AudioComponent.h
+			 * was introduced in 10.6 so use it to decide which
+			 * type definition to use. */
+-#ifdef __AUDIOCOMPONENT_H__
++#if defined(AUDIO_UNIT_VERSION) && (AUDIO_UNIT_VERSION >= 1060)
+			AudioComponentDescription desc;
+ #else
+			ComponentDescription desc;

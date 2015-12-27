@@ -1,4 +1,5 @@
 class Xboard < Formula
+  desc "Graphical user interface for chess"
   homepage "https://www.gnu.org/software/xboard/"
   url "http://ftpmirror.gnu.org/xboard/xboard-4.8.0.tar.gz"
   mirror "https://ftp.gnu.org/gnu/xboard/xboard-4.8.0.tar.gz"

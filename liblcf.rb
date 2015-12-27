@@ -4,12 +4,13 @@ class Liblcf < Formula
   url "https://github.com/EasyRPG/liblcf/archive/0.3.2.tar.gz"
   sha256 "cf98a43f3f10047bf51e92a472bae2904eb61eb7d9495130e17857324047f529"
   head "https://github.com/EasyRPG/liblcf.git"
+  revision 1
 
   bottle do
     cellar :any
-    sha256 "08f123e17b70f5ffff2c0a96f246a84735abbc1ed53b2187a9fdaad15e1643ea" => :el_capitan
-    sha256 "f9e96fe39f25f77354ce57923b1be0c84447ee4c7556a9155b27188b440d3b10" => :yosemite
-    sha256 "eb97622cbe693e9f87e68746ca35d5949e2ff962832d674cbd6f2030faa08ffd" => :mavericks
+    sha256 "0c8f5488254c7afb21ce9739623ee4cd39df8c557d9f2a884636709ed2f6fdba" => :el_capitan
+    sha256 "502bb44f623a97305cc1f823f87cad2f4d732889ecfe63c1c6a1a8291a86d954" => :yosemite
+    sha256 "3f567a9e11a21c2c6705019091d60ee9752360ffb4267e57bf85dad9da086fca" => :mavericks
   end
 
   depends_on "autoconf" => :build

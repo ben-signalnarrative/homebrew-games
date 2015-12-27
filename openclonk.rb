@@ -1,8 +1,9 @@
 class Openclonk < Formula
-  head "https://github.com/openclonk/openclonk", :using => :git
+  desc "Multiplayer action game"
   homepage "http://www.openclonk.org"
   url "https://github.com/openclonk/openclonk/archive/v6.1.tar.gz"
   sha256 "4e2e6cefedd4a13523593b285af23b530caa3a98ff02ac4adb215cf32889cb94"
+  head "https://github.com/openclonk/openclonk", :using => :git
 
   bottle do
     cellar :any

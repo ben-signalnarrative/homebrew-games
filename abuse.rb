@@ -7,9 +7,9 @@ class Abuse < Formula
 
   bottle do
     cellar :any
-    sha1 "4b1251c34a1be43af54c818f5a256ae71447fb88" => :yosemite
-    sha1 "240f522bbebf0d60612f0244a5808c821b6e28d0" => :mavericks
-    sha1 "d35d4a43e373ca8af58dfb361637498e179188ca" => :mountain_lion
+    sha256 "cb60b8b12112e3c18080db23624aa9d3fd9217aff9254f2c6c76df99b4f03284" => :yosemite
+    sha256 "0ad33d743c8f6bfab8b1a6b0a85657ab27309cd95c2df478439dc3b21dd3cc0b" => :mavericks
+    sha256 "aeb28d6f8d8ec88838f462619975642649397e9a0122cadbee32e0bd5200fdf6" => :mountain_lion
   end
 
   depends_on "autoconf" => :build

@@ -1,16 +1,16 @@
 class Mame < Formula
   desc "Multiple Arcade Machine Emulator"
   homepage "http://mamedev.org/"
-  url "https://github.com/mamedev/mame/archive/mame0167.tar.gz"
-  version "0.167"
-  sha256 "fbb7fb8c98c2a26fed44441732d5c64c7c9c7417288e6b71a5cd0cea433e5064"
+  url "https://github.com/mamedev/mame/archive/mame0168.tar.gz"
+  version "0.168"
+  sha256 "3b6db52ddffed867ae171664e327f0b2bade64139d3450dc7166c4f90b6d94e8"
   head "https://github.com/mamedev/mame.git"
 
   bottle do
     cellar :any
-    sha256 "648fe7fb0bd6b534462663f7978b154e6842727a9db859bc7c8db94cae788b10" => :el_capitan
-    sha256 "0c8437846ca402ff96646a570ae6d0b37a49e6d394c1cc1464b1528a3d7e1dab" => :yosemite
-    sha256 "91c8236acc885866fd93f189e6ead85be283174c195654c434e25c9e273f52ab" => :mavericks
+    sha256 "122be0ced02907d7f5e728fda7613b6d299ee866f41849a3cf961429c97a8df5" => :el_capitan
+    sha256 "38e7e09c627bed7519f4323d8475076c5636715a1f6a1a4b8f71aca9b495f1ef" => :yosemite
+    sha256 "01a5f5535c52d1ca4a4533fcb673473e824b619603f445a4e0a4503cbc9e008f" => :mavericks
   end
 
   depends_on :python => :build if MacOS.version <= :snow_leopard

@@ -6,8 +6,9 @@ require "etc"
 # The patches in DATA section are shamelessly stolen from MacPorts' jnethack portfile.
 
 class Jnethack < Formula
-  url "https://downloads.sourceforge.net/project/nethack/nethack/3.4.3/nethack-343-src.tgz"
+  desc "Japanese localization of Nethack"
   homepage "http://jnethack.sourceforge.jp/"
+  url "https://downloads.sourceforge.net/project/nethack/nethack/3.4.3/nethack-343-src.tgz"
   version "3.4.3-0.11"
   sha256 "bb39c3d2a9ee2df4a0c8fdde708fbc63740853a7608d2f4c560b488124866fe4"
 

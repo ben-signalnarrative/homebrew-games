@@ -1,9 +1,10 @@
 class Puzzles < Formula
+  desc "Collection of one-player puzzle games"
   homepage "http://www.chiark.greenend.org.uk/~sgtatham/puzzles/"
   url "https://mirrors.kernel.org/debian/pool/main/s/sgt-puzzles/sgt-puzzles_20140928.r10274.orig.tar.gz"
   mirror "https://mirrors.ocf.berkeley.edu/debian/pool/main/s/sgt-puzzles/sgt-puzzles_20140928.r10274.orig.tar.gz"
-  sha256 "d8c61b29c4cb39d991e4440e411fd0d78f23fdf5fb96621b83ac34ab396823aa"
   version "10274"
+  sha256 "d8c61b29c4cb39d991e4440e411fd0d78f23fdf5fb96621b83ac34ab396823aa"
 
   head "git://git.tartarus.org/simon/puzzles.git"
 

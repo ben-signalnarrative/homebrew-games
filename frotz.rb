@@ -1,11 +1,10 @@
-require 'formula'
-
 class Frotz < Formula
-  url 'https://github.com/DavidGriffith/frotz/archive/2.44.tar.gz'
-  homepage 'https://github.com/DavidGriffith/frotz'
-  sha256 'dbb5eb3bc95275dcb984c4bdbaea58bc1f1b085b20092ce6e86d9f0bf3ba858f'
+  desc "Infocom-style interactive fiction player"
+  homepage "https://github.com/DavidGriffith/frotz"
+  url "https://github.com/DavidGriffith/frotz/archive/2.44.tar.gz"
+  sha256 "dbb5eb3bc95275dcb984c4bdbaea58bc1f1b085b20092ce6e86d9f0bf3ba858f"
 
-  head 'https://github.com/DavidGriffith/frotz.git'
+  head "https://github.com/DavidGriffith/frotz.git"
 
   bottle do
     cellar :any
@@ -22,7 +21,7 @@ class Frotz < Formula
       s.change_make_var! "MAN_PREFIX", share
     end
 
-    system "make frotz"
-    system "make install"
+    system "make", "frotz"
+    system "make", "install"
   end
 end

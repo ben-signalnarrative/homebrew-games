@@ -1,9 +1,8 @@
-require "formula"
-
 class Lcs < Formula
+  desc "Satirical console-based political role-playing/strategy game"
   homepage "http://sourceforge.net/projects/lcsgame/"
-  url "svn://svn.code.sf.net/p/lcsgame/code/trunk", :revision => '738'
-  version '4.07.4b'
+  url "svn://svn.code.sf.net/p/lcsgame/code/trunk", :revision => "738"
+  version "4.07.4b"
 
   head "svn://svn.code.sf.net/p/lcsgame/code/trunk"
 
@@ -11,7 +10,7 @@ class Lcs < Formula
   depends_on "automake" => :build
 
   def install
-    system './bootstrap'
+    system "./bootstrap"
     system "./configure", "LIBS=-liconv", "--prefix=#{prefix}"
     system "make", "install"
   end
